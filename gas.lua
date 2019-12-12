@@ -10,8 +10,9 @@ minetest.register_node("radioactive_gas:gas", {
 	drawtype = "glasslike",
 	drowning = 1,
 	post_effect_color = {a = 20, r = 20, g = 250, b = 20},
-	tiles = {"planet_moon_gas.png^[colorize:#E0F0E033"},
+	tiles = {"radioactive_gas.png"},
 	alpha = 0.1,
+	paramtype = "light",
 	groups = {
     not_in_creative_inventory = 1,
     not_blocking_trains = 1,
@@ -27,15 +28,11 @@ minetest.register_abm({
   label = "moon ore outgasing",
 	nodenames = {"vacuum:vacuum"},
 	neighbors = {
-    "default:stone_with_diamond",
     "default:stone_with_mese",
-    "default:stone_with_gold",
-    "default:stone_with_iron",
-    "default:stone_with_coal",
     "default:mineral_uranium"
   },
-	interval = 5,
-	chance = 10,
+	interval = 10,
+	chance = 200,
 	action = function(pos)
     minetest.set_node(pos, {name = "radioactive_gas:gas"})
   end
