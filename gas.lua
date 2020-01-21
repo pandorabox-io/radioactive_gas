@@ -31,8 +31,8 @@ minetest.register_abm({
     "default:stone_with_mese",
     "default:mineral_uranium"
   },
-	interval = 10,
-	chance = 200,
+	interval = 20,
+	chance = 2000,
 	action = function(pos)
     minetest.set_node(pos, {name = "radioactive_gas:gas"})
   end
